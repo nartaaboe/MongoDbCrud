@@ -1,12 +1,16 @@
-package com.example.mongodbcrud;
+package com.example.mongodbcrud.model;
 
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("products")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "products")
 public class Product {
     @Id
-    private String id;
+    private Long id;
     private String name;
     private int quantity;
 }
