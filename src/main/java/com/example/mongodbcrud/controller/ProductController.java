@@ -26,7 +26,7 @@ public class ProductController {
         return "product saved.";
     }
     @DeleteMapping("/{id}")
-    public String deleteProduct(@PathVariable Long id){
+    public String deleteProduct(@PathVariable String id){
         productRepository.deleteById(id);
         return "product deleted.";
     }

@@ -1,14 +1,12 @@
 package com.example.mongodbcrud;
 
-import com.example.mongodbcrud.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.github.cloudyrock.spring.v5.EnableMongock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@EnableMongock
 public class MongoDbCrudApplication{
-    @Autowired
-    private ProductRepository productRepository;
     public static void main(String[] args) {
         SpringApplication.run(MongoDbCrudApplication.class, args);
     }
