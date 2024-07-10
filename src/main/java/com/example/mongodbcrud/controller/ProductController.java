@@ -2,6 +2,7 @@ package com.example.mongodbcrud.controller;
 
 import com.example.mongodbcrud.repository.ProductRepository;
 import com.example.mongodbcrud.model.Product;
+import com.example.mongodbcrud.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,23 +12,23 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
     @GetMapping
     public List<Product> getProducts(){
-        return productRepository.findAll();
+        return productService.findAll();
     }
     @GetMapping("/{name}")
     public Product getProductByName(@PathVariable String name){
-        return productRepository.findByName(name);
+        return productService.findByName(name);
     }
     @PostMapping
     public String saveProduct(@RequestBody Product product){
-        productRepository.save(product);
+        productService.addProduct(product);
         return "product saved.";
     }
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable String id){
-        productRepository.deleteById(id);
+        productService.deleteProduct(id);
         return "product deleted.";
     }
 }
